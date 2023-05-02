@@ -28,7 +28,7 @@
           <p>Post Feed</p>
         <% elsif current_page?(about_path) %>
           <p>About</p>
-        <% elsif current_page?(post_path)%>
+        <% elsif user_signed_in? && current_page?(@post_path)%>
           <p>Your Post</p>
         <%end%>
         <% unless current_page?(root_path)%>
@@ -54,6 +54,9 @@
       <%= yield %>
     
     </div>
+
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
 
   </body>
 </html>
